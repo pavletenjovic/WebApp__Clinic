@@ -1,0 +1,28 @@
+<div class="container-fluid" *ngIf="tipKorisnika=='manager'">
+    <div class="row" style="background-color: aquamarine;">
+        <div class="col-sm-4" style="text-align: left;">
+            <a routerLink=""><img src="../../assets/Screenshot 2023-08-11 221223.png" alt="LOGO" routerLink=''></a>
+        </div>
+        <div class="col-sm-8" style="text-align: right; margin-top: 15px;">
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='/manager' style="text-decoration: none;">Users</a></span> &nbsp;&nbsp; &nbsp; &nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='/requests' style="text-decoration: none;">Requests</a></span> &nbsp;&nbsp; &nbsp; &nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='/addadoctor' style="text-decoration: none;">Add a doctor</a></span> &nbsp;&nbsp; &nbsp; &nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='/dbupdate' style="text-decoration: none;">DB Update</a></span> &nbsp;&nbsp; &nbsp; &nbsp;    
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink=''>Logout</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-6 kartice" *ngFor="let doc of allUsers">
+            <a (click)="predjiNaKorisnika(doc)">
+                <div class="card" style="width: 18rem;">
+                <div *ngIf="doc.url!=null"><img [src]="doc.url" class="card-img-top" alt="nema slike"></div>
+                    <div *ngIf="doc.url==null"><img src="../../assets/default.jpg" class="card-img-top" alt="nema"></div>
+                    <div class="card-body">
+                    <h5 class="card-title"> {{doc.firstname}} {{doc.lastname}} <br> Type: {{doc.type}}</h5>
+                    <p class="card-text"><button>Update</button> &nbsp;&nbsp; <button (click)="deleteUser(doc.username)">Delete</button></p>
+                    </div>
+              </div>
+            </a>
+        </div>
+    </div>
+</div>

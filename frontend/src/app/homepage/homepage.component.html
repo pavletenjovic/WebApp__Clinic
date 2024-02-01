@@ -1,0 +1,112 @@
+
+<div class="container-fluid">
+    <div class="row" style="background-color: aquamarine;">
+        <div class="col-sm-4" style="text-align: left;">
+            <a routerLink=""><img src="../../assets/Screenshot 2023-08-11 221223.png" alt="LOGO" routerLink=''></a>
+        </div>
+        <div class="col-sm-8" style="text-align: right; margin-top: 15px;">
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='welcome' style="text-decoration: none;">Login</a></span> &nbsp;&nbsp; &nbsp; &nbsp;  
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink='register'>Register</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <div class="row justify-content-center" style="margin-top: 20px;">
+        
+        <div class="col-sm-6">
+            
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                    <button
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="0"
+                        class="active"
+                        aria-current="true"
+                        aria-label="Slide 1"
+                    ></button>
+                    <button
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="1"
+                        aria-label="Slide 2"
+                    ></button>
+                    <button
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="2"
+                        aria-label="Slide 3"
+                    ></button>
+                    <button
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="3"
+                        aria-label="Slide 4"
+                    ></button>
+                    <button
+                        type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="4"
+                        aria-label="Slide 5"
+                    ></button>
+                    </div>
+                    <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../../assets/8-Ways-to-Improve-Operating-Room-Efficiency.jpg" class="d-block w-100" alt="Wild Landscape"/>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../../assets/OR-X-Simulation-Hologram.jpg" class="d-block w-100" alt="Camera"/>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../../assets/going-to-hospital-featuredimage.jpg" class="d-block w-100" alt="Exotic Fruits"/>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../../assets/ba_hea_scuh_01_300ppi-2400x1602.jpg" class="d-block w-100" alt="Exotic Fruits"/>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../../assets/istock-172463472.jpg" class="d-block w-100" alt="Exotic Fruits"/>
+                    </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+        </div>
+        
+    </div>
+    <div class="row justify-content-center search-bar">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6" style="text-align: center;">
+            <input type="text" [(ngModel)]="searchName" class="search-input" placeholder="Search Firstname">
+            <input type="text" [(ngModel)]="searchLastname" class="search-input" placeholder="Search Lastname">
+            <input type="text" [(ngModel)]="searchSpecialization" class="search-input" placeholder="Search Specialization">
+            <button type="button" (click)="search()" class="search-button">Search</button>
+        </div>
+        <div class="col-sm-3">
+            <span class="sort-label">Sort by:</span>
+            <select [(ngModel)]="selectedOption" (ngModelChange)="sortChange()" class="sort-select">
+                <option value="na">Name ascending</option>
+                <option value="nd">Name descending</option>
+                <option value="la">Lastname ascending</option>
+                <option value="ld">Lastname descending</option>
+                <option value="sa">Specialization ascending</option>
+                <option value="sd">Specialization descending</option>
+            </select>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-12 doctor-cards" *ngFor="let doc of filteredDoctors">
+            <div class="card">
+                <div *ngIf="doc.url!=null"><img [src]="doc.url" class="card-img-top" alt="Doctor's Image"></div>
+                <div *ngIf="doc.url==null"><img src="../../assets/default.jpg" class="card-img-top" alt="Default Image"></div>
+                <div class="card-body">
+                    <h5 class="card-title">Dr. {{doc.firstname}} {{doc.lastname}}</h5>
+                    <p class="card-text">Specialization: {{doc.specialization}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

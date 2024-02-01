@@ -1,0 +1,39 @@
+<div class="container-fluid" *ngIf="tipKorisnika=='doctor'">
+    <div class="row" style="background-color: aquamarine;">
+        <div class="col-sm-4" style="text-align: left;">
+            <a routerLink=""><img src="../../assets/Screenshot 2023-08-11 221223.png" alt="LOGO" routerLink=''></a>
+        </div>
+        <div class="col-sm-8" style="text-align: right; margin-top: 15px;">
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='/doctor' style="text-decoration: none;">My Profile</a></span> &nbsp;&nbsp; &nbsp; &nbsp;  
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink=''>Appointments</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink='/other'>Other</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink=''>Logout</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12" style="text-align: center;">
+            <div *ngFor="let a of prvaTriPregleda">
+                
+                    <div>
+                        <div>
+                            <strong>Appointment: </strong>
+                            {{a.name}}
+                        </div>
+                        <div>
+                            <strong>Date and time: </strong>
+                            {{a.datum}}
+                        </div>
+                        <div>
+                            <strong>Pacient: </strong>
+                            {{a.pacient}}
+                        </div>
+                        <div>
+                            <strong>Branch: </strong>
+                            {{a.branch}}
+                        </div>
+                    </div>
+                    <a (click)="karton(a.pacient)">Karton</a>
+            </div>
+        </div>
+    </div>
+</div>

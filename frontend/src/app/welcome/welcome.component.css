@@ -1,0 +1,45 @@
+table {
+    margin: 0 auto;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 300px; /* Adjust the width as needed */
+    margin-top: 80px;
+}
+
+/* Style table cells */
+td {
+    padding: 10px;
+    text-align: right;
+}
+
+/* Style input fields */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style the Login button */
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Style the Register link */
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+/* Center the Register link */
+td[colspan="2"] {
+    text-align: center;
+}

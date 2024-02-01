@@ -1,0 +1,37 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Style for each column within the row */
+.col-md-6 {
+  width: 48%; /* Adjust the width as needed */
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Style for the input elements */
+input[type="text"],
+input[type="datetime-local"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+/* Style for the "Add report" button */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Style for the strong tags within div elements */
+div strong {
+  font-weight: bold;
+  margin-right: 5px;
+}
+  

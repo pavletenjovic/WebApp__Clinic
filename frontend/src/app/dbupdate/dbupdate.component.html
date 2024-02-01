@@ -1,0 +1,43 @@
+<div class="container-fluid" *ngIf="tipKorisnika=='manager'">
+    <div class="row" style="background-color: aquamarine;">
+        <div class="col-sm-4" style="text-align: left;">
+            <a routerLink=""><img src="../../assets/Screenshot 2023-08-11 221223.png" alt="LOGO" routerLink=''></a>
+        </div>
+        <div class="col-sm-8" style="text-align: right; margin-top: 15px;">
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='/manager' style="text-decoration: none;">Users</a></span> &nbsp;&nbsp; &nbsp; &nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='/requests' style="text-decoration: none;">Requests</a></span> &nbsp;&nbsp; &nbsp; &nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='/addadoctor' style="text-decoration: none;">Add a doctor</a></span> &nbsp;&nbsp; &nbsp; &nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='/dbupdate' style="text-decoration: none;">DB Update</a></span> &nbsp;&nbsp; &nbsp; &nbsp;    
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink=''>Logout</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-12" style="margin-top: 30px;">
+            New specialization: <input type="text" [(ngModel)]="newSpecialization"><br>
+            <button (click)="dodajSpec()">Dodaj</button>
+            <br>
+            <div style="margin-top: 20px;" *ngFor="let a of pendingAppointments">
+                <strong>Specialization: </strong>{{a.specialization}} <br>
+                <strong>Name: </strong>{{a.name}} <br>
+                <strong>Price: </strong>{{a.cena}} <br>
+                <strong>Time: </strong>{{a.trajanje}}
+                <br>
+                <button (click)="acceptPA(a)">Accept</button>&nbsp;&nbsp;&nbsp; <button  (click)="declinePA(a)">Decline</button>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12" style="margin-top: 30px;">
+            Cena: <input type="number" [(ngModel)]="cena"> <br>
+            Trajanje <input type="number" [(ngModel)]="trajanje"> <br>
+            <div *ngFor="let a of allAppointments">
+                <strong>Specialization: </strong>{{a.specialization}} <br>
+                <strong>Name: </strong>{{a.name}} <br>
+                <strong>Price: </strong>{{a.cena}} <br>
+                <strong>Time: </strong>{{a.trajanje}}
+                <br>
+                <button (click)="updatePA(a)">Update</button>&nbsp;&nbsp;&nbsp;
+                <button (click)="deletePA(a)">Delete</button>
+            </div>
+        </div>
+    </div>
+    
+</div>

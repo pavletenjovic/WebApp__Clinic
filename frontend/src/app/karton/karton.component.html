@@ -1,0 +1,70 @@
+<div class="container-fluid" *ngIf="tipKorisnika=='doctor'">
+    <div class="row" style="background-color: aquamarine;">
+        <div class="col-sm-4" style="text-align: left;">
+            <a routerLink=""><img src="../../assets/Screenshot 2023-08-11 221223.png" alt="LOGO" routerLink=''></a>
+        </div>
+        <div class="col-sm-8" style="text-align: right; margin-top: 15px;">
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='/doctor' style="text-decoration: none;">My Profile</a></span> &nbsp;&nbsp; &nbsp; &nbsp;  
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink=''>Appointments</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink='/other'>Other</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink=''>Logout</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div *ngFor="let a of reports">
+                <div>
+                    <strong>Pacijent: </strong>
+                    {{a.pacient}}
+                </div>
+                <div>
+                    <strong>Razlog dolaska: </strong>
+                    {{a.razlog}}
+                </div>
+                <div>
+                    <strong>Dijagnoza: </strong>
+                    {{a.dijagnoza}}
+                </div>
+                <div>
+                    <strong>Terapija: </strong>
+                    {{a.terapija}}
+                </div>
+                <div>
+                    <strong>Datum: </strong>
+                    {{a.datum}}
+                </div>
+                <div>
+                    <strong>Datum kontrole: </strong>
+                    {{a.datumKontrole}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div>Razlog: <input type="text" [(ngModel)]="razlog"></div>
+            <div>Dijagnoza: <input type="text" [(ngModel)]="dijagnoza"></div>
+            <div>Terapija: <input type="text" [(ngModel)]="terapija"></div>
+            <div>Datum kontrole: <input type="datetime-local" [(ngModel)]="datumKontrole"></div>
+            <div *ngFor="let a of prvaTriPregleda">
+                        <div>
+                            <strong>Appointment: </strong>
+                            {{a.name}}
+                        </div>
+                        <div>
+                            <strong>Date and time: </strong>
+                            {{a.datum}}
+                        </div>
+                        <div>
+                            <strong>Pacient: </strong>
+                            {{a.pacient}}
+                        </div>
+                        <div>
+                            <strong>Branch: </strong>
+                            {{a.branch}}
+                        </div>
+                        <div>
+                            <button (click)="addReport(a.name, a.datum)">Add report</button>
+                        </div>
+            </div>
+        </div>
+    </div>
+</div>

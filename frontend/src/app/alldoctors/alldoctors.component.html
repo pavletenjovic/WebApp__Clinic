@@ -1,0 +1,50 @@
+<div class="container-fluid" *ngIf="tipKorisnika=='pacient'">
+    <div class="row" style="background-color: aquamarine;">
+        <div class="col-sm-4" style="text-align: left;">
+            <a routerLink=""><img src="../../assets/Screenshot 2023-08-11 221223.png" alt="LOGO" routerLink=''></a>
+        </div>
+        <div class="col-sm-8" style="text-align: right; margin-top: 15px;">
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='/pacient' style="text-decoration: none;">My Profile</a></span> &nbsp;&nbsp; &nbsp; &nbsp;  
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink='/alldoctors'>Doctors</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink='/pacientappointment'>My Appointments</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink=''>Logout</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <div class="row justify-content-center search-bar">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6" style="text-align: center;">
+            <input type="text" [(ngModel)]="searchName" class="search-input" placeholder="Search Firstname">
+            <input type="text" [(ngModel)]="searchLastname" class="search-input" placeholder="Search Lastname">
+            <input type="text" [(ngModel)]="searchSpecialization" class="search-input" placeholder="Search Specialization">
+            <input type="text" [(ngModel)]="searchBranch" class="search-input" placeholder="Search Branch">
+            <button type="button" (click)="search()" class="search-button" style="margin-top: 5px;">Search</button>
+        </div>
+        <div class="col-sm-3">
+            <span class="sort-label">Sort by:</span>
+            <select [(ngModel)]="selectedOption" (ngModelChange)="sortChange()" class="sort-select">
+                <option value="na">Name ascending</option>
+                <option value="nd">Name descending</option>
+                <option value="la">Lastname ascending</option>
+                <option value="ld">Lastname descending</option>
+                <option value="sa">Specialization ascending</option>
+                <option value="sd">Specialization descending</option>
+                <option value="ba">Branch ascending</option>
+                <option value="bd">Branch descending</option>
+            </select>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-12 doctor-cards" *ngFor="let doc of filteredDoctors">
+            <a (click)="profilDoktora(doc.username)">
+                <div class="card">
+                    <div *ngIf="doc.url!=null"><img [src]="doc.url" class="card-img-top" alt="Doctor's Image"></div>
+                    <div *ngIf="doc.url==null"><img src="../../assets/default.jpg" class="card-img-top" alt="Default Image"></div>
+                    <div class="card-body">
+                        <h5 class="card-title">Dr. {{doc.firstname}} {{doc.lastname}}</h5>
+                        <p class="card-text">Specialization: {{doc.specialization}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

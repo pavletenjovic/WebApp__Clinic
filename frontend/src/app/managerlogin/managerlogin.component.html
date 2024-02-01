@@ -1,0 +1,37 @@
+<table>
+    <tr>
+        <td>
+            Username
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="username">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Password
+        </td>
+        <td>
+            <input type="password" [(ngModel)]="password">
+           
+        </td>
+        
+    </tr>
+    <tr>
+        <td colspan="2" style="color: red; font-weight: bold;">
+            <span>{{losiPodaci}}</span>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)='login()'>
+                Login
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            Don't have an account. Register <a routerLink='/register'>here.</a>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,56 @@
+.registration-table {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #9dd6df;
+    border: 2px solid #0e0404;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.registration-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.registration-table td:first-child {
+    font-weight: bold;
+}
+
+.registration-table input[type="text"],
+.registration-table input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.profile-picture {
+    display: flex;
+    align-items: center;
+}
+
+.profile-picture-label {
+    cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.register-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.register-button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 14px;
+}

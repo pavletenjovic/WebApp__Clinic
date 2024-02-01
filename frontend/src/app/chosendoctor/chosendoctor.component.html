@@ -1,0 +1,44 @@
+<div class="container-fluid" *ngIf="tipKorisnika=='pacient'">
+    <div class="row" style="background-color: aquamarine;">
+        <div class="col-sm-4" style="text-align: left;">
+            <a routerLink=""><img src="../../assets/Screenshot 2023-08-11 221223.png" alt="LOGO" routerLink=''></a>
+        </div>
+        <div class="col-sm-8" style="text-align: right;">
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='/pacient' style="text-decoration: none;">My Profile</a></span> &nbsp;&nbsp; &nbsp; &nbsp;  
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink='/alldoctors'>Doctors</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink='/pacientappointment'>My Appointments</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink=''>Logout</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-12" *ngIf="chosen.url">
+            <img [src]="chosen.url" alt="">
+        </div>
+        <div class="col-md-4 col-sm-12" *ngIf="!chosen.url">
+            <img src="../../assets/default.jpg" alt="nema slike">
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div><strong>Name:</strong> {{chosen.firstname}} {{chosen.lastname}}</div><br>
+            <div><strong>Specialization: </strong>{{chosen.specialization}}</div><br>
+            <div><strong>Email:</strong> {{chosen.email}}</div><br>
+            <div><strong>Licence: </strong>{{chosen.licence}}</div><br>
+            <div><strong>Branch: </strong>{{chosen.branch}}</div><br>
+            <div><strong>Type of appointments:</strong></div><br>
+            <div *ngFor="let a of chosen.appointments">
+                <div>&nbsp;&nbsp;&nbsp;<strong>Name:</strong> {{a.name}}</div>
+                <div>&nbsp;&nbsp;&nbsp;<strong>Time: </strong>{{a.trajanje}}</div>
+                <div>&nbsp;&nbsp;&nbsp;<strong>Price: </strong>{{a.cena}}</div>
+                <br>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-12">
+            pregledi:
+            <select [(ngModel)]="pregled">
+                <option [ngValue]="a" *ngFor="let a of allApp">{{a.name}}</option>
+            </select><br>
+            Datum i vreme: <input type="datetime-local" [(ngModel)]="datum" #datetimeInput><br>
+            <button (click)="zakaziPregled()">Zakazi</button>
+        </div>
+    </div>
+    
+</div>

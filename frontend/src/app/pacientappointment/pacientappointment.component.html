@@ -1,0 +1,68 @@
+<div class="container-fluid" *ngIf="tipKorisnika=='pacient'">
+    <div class="row" style="background-color: aquamarine;">
+        <div class="col-sm-4" style="text-align: left;">
+            <a routerLink=""><img src="../../assets/Screenshot 2023-08-11 221223.png" alt="LOGO" routerLink=''></a>
+        </div>
+        <div class="col-sm-8" style="text-align: right; margin-top: 15px;">
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='/pacient' style="text-decoration: none;">My Profile</a></span> &nbsp;&nbsp; &nbsp; &nbsp;  
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink='/alldoctors'>Doctors</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink='/pacientappointment'>My Appointments</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink=''>Logout</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div *ngFor="let a of allAppointment">
+                <div>
+                    <strong>Appointment: </strong>
+                    {{a.name}}
+                </div>
+                <div>
+                    <strong>Date and time: </strong>
+                    {{a.datum}}
+                </div>
+                <div>
+                    <strong>Doctor: </strong>
+                    {{a.doctor}}
+                </div>
+                <div>
+                    <strong>Branch: </strong>
+                    {{a.branch}}
+                </div>
+                <div>
+                    <button (click)="cancel(a)">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div *ngFor="let a of allReport; let i = index" [class.alt-background]="i % 2 === 1">
+                
+                    <strong>Doctor: </strong> <br>
+                    {{a.doctor}}<br>
+                
+                    <strong>Specialization: </strong><br>
+                    {{a.specialization}}<br>
+                
+                    <strong>Date and time: </strong><br>
+                    {{a.datum}}<br>
+               
+                    <strong>Branch: </strong><br>
+                    {{a.branch}}<br>
+                
+                    <strong>Razlog: </strong><br>
+                    {{a.razlog}}<br>
+                
+                    <strong>Dijagnoza: </strong><br>
+                    {{a.dijagnoza}}<br>
+                
+                    <strong>Terapija: </strong><br>
+                    {{a.terapija}}<br>
+                
+                    <strong>Datum kontrole: </strong><br>
+                    {{a.datumKontrole}}
+                    <br>
+            </div>
+        </div>
+    </div>
+</div>

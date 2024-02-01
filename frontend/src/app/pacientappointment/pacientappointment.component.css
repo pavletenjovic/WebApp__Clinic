@@ -1,0 +1,41 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for each column within the row */
+  .col-md-6 {
+    width: 48%; /* Adjust the width as needed */
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Style for the button element */
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  /* Style for strong tags within the div elements */
+  div strong {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  /* Style for div elements within the columns */
+  .col-md-6 div {
+    margin-bottom: 10px;
+  }
+  div {
+    background-color: #f0f0f0; /* Replace with your desired color */
+  }
+  
+  /* Background color for odd-indexed elements */
+  div.alt-background {
+    background-color: #e0e0e0; /* Replace with your desired color */
+  }

@@ -1,0 +1,101 @@
+<table *ngIf="tipKorisnika=='manager'">
+    <tr>
+        <td >Firstname</td>
+        <td><input type="text" [(ngModel)]="firstname"></td>
+    </tr>
+    <tr>
+        <td>Lastname</td>
+        <td><input type="text" [(ngModel)]="lastname"></td>
+    </tr>
+    <tr>
+        <td>Username</td>
+        <td><input type="text" [(ngModel)]="username" (focusout)="testUsername()"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <span *ngIf="badUsername">{{this.badUsername}}</span>
+        </td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td><input type="password" [(ngModel)]="password"  (focusout)="testPassword()"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <span *ngIf="badPassword">{{badPassword}}</span>
+        </td>
+    </tr>
+    <tr>
+        <td>Confirm Password</td>
+        <td><input type="password" [(ngModel)]="password2"  (focusout)="testPassword2()"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <span *ngIf="badPassword2">{{badPassword2}}</span>
+        </td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><input type="text" [(ngModel)]="email"  (focusout)="testEmail()"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <span *ngIf="badEmail">{{badEmail}}</span>
+        </td>
+    </tr>
+    <tr>
+        <td>Telephone</td>
+        <td><input type="text" [(ngModel)]="telephone"  (focusout)="testTelephone()"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <span *ngIf="badTelephone">{{badTelephone}}</span>
+        </td>
+    </tr>
+    <tr>
+        <td>Licence</td>
+        <td><input type="number" [(ngModel)]="licence"></td>
+    </tr>
+    <tr>
+        <td>Specialization</td>
+        <td>
+          <select name="specs" [(ngModel)]="specs">
+            <option *ngFor="let s of allSpecializations" [value]="s">{{ s }}</option>
+          </select>
+        </td>
+      </tr>
+      
+    <tr>
+        <td>Branch</td>
+        <td><input type="text" [(ngModel)]="branch"></td>
+    </tr>
+    <tr>
+        <td>Adress</td>
+        <td><input type="text" [(ngModel)]="adress"></td>
+    </tr>
+    <tr>
+        <td>Profile picture</td>
+        <td><input type="file"></td>
+        <div *ngIf="!url">
+            <label style="text-align: center; border-radius: 50%;" for="image">
+                <img src="..\assets\default.jpg" height="50px">
+            </label>
+            <br>
+            <input type="file" style="visibility:hidden;" (change)="onFileSelected(imageInput.files)" id="image" value="image" #imageInput>
+            
+        </div>
+        <img [src]="url" height="100px"><br *ngIf="url">
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center;">
+            <button (click)="register()">
+                Register
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <span *ngIf="cantRegister">{{cantRegister}}</span>
+        </td>
+    </tr>
+</table>

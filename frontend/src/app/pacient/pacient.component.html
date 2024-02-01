@@ -1,0 +1,59 @@
+<div class="container-fluid" *ngIf="tipKorisnika=='pacient'">
+    <div class="row" style="background-color: aquamarine;">
+        <div class="col-sm-4" style="text-align: left;">
+            <a routerLink=""><img src="../../assets/Screenshot 2023-08-11 221223.png" alt="LOGO" routerLink=''></a>
+        </div>
+        <div class="col-sm-8" style="text-align: right; margin-top: 15px;">
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a routerLink='/pacient' style="text-decoration: none;">My Profile</a></span> &nbsp;&nbsp; &nbsp; &nbsp;  
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink='/alldoctors'>Doctors</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink='/pacientappointment'>My Appointments</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-size: 30px; color: darkblue; font-weight: bold;"><a style="text-decoration: none;" routerLink=''>Logout</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-12">
+            <div *ngIf="!url"><img src="../../assets/default.jpg" alt="nema slike" class="profilna"></div>
+            <div *ngIf="url"> <img [src]="url" alt="nema slike" class="profilna"></div>
+        </div>
+        <div class="col-md-8 col-sm-12">
+            <div style="margin-top: 40px; font-size: 60px; font-weight: bold;">My Profile:</div>
+            <div class="info">Firstname: {{firstname}}</div>
+            <div class="input"><input type="text" [(ngModel)]="firstnameChange" *ngIf="fnBool"></div>
+            <div><button (click)="firstnameVisible()">Update</button></div>
+            <div class="info">Lastname: {{lastname}}</div>
+            <div class="input"><input type="text" [(ngModel)]="lastnameChange" *ngIf="lnBool"></div>
+            <div><button (click)="lastnameVisible()">Update</button></div>
+            <div class="info">Email: {{email}}</div>
+            <div class="input"><input type="text" [(ngModel)]="emailChange" *ngIf="emailBool" (focusout)="testEmail()"></div>
+            <p class="greska">{{badEmail}}</p>
+            <div><button (click)="emailVisible()">Update</button></div>
+            <div class="info">Telephone: {{telephone}}</div>
+            <div class="input"><input type="text" [(ngModel)]="telephoneChange" *ngIf="telBool" (focusout)="testTelephone()"></div>
+            <p class="greska">{{badTelephone}}</p>
+            <div><button (click)="telephoneVisible()">Update</button></div>
+            <div class="info">Adress: {{adress}}</div>
+            <div class="input"><input type="text" [(ngModel)]="adressChange" *ngIf="adrBool"></div>
+            <div><button (click)="adressVisible()">Update</button></div>
+            <div><button (click)="urlVisible()">Change Picture</button> &nbsp;&nbsp;&nbsp;&nbsp; <button *ngIf="meLogged" (click)="passwordVisible()">ChangePassword</button></div>
+            <div class="info" *ngIf="passBool">
+                Old Password <input type="password" (focusout)="testOldPassword()" [(ngModel)]="oldpass"> <br>
+                <p class="greska">{{badOldPassword}}</p>
+                New Password <input type="password" (focusout)="testPassword()" [(ngModel)]="pass"> <br>
+                <p class="greska">{{badPassword}}</p> <br>
+                New Password <input type="password" (focusout)="testPassword2()" [(ngModel)]="pass2"> <br>
+                <p class="greska">{{badPassword2}}</p> <br>
+            </div>
+            <div *ngIf="urlBool">
+                <label style="text-align: center; border-radius: 50%;" for="image">
+                    <img src="..\assets\default.jpg" height="50px">
+                </label>
+                <br>
+                <input type="file" style="visibility:hidden;" (change)="onFileSelected(imageInput.files)" id="image" value="image" #imageInput>
+            </div>
+            <br>
+            <div><button (click)="updateInfo()">Apply changes</button></div>
+        </div>
+    </div>
+    
+</div>
